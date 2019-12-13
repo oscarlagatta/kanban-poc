@@ -1,11 +1,13 @@
 Angular works well with Firebase because of the AngularFire library. FireStore and the real time database both provide
 real time data feeds which are the perfect use case for observables and RXJS. And as you might imagine the angularfire library has
 a schematic @angular/fire so we can easily add it to our application by running "ng add @angular/fire", that's going to install
-the dependencies and make few other minor updates but at this point we don't even have a firebase project.
+the dependencies and make few other minor updates.
 
-The next step is to go to the firebase.google.com and create a brand new project or use existing if you prefer. Once we are
-at the console we can register our application. Once registered we can go to the project settings and we can see the option
-to get the configuration properties for this project. Like the following:
+At this point we don't even have a firebase project so the next step is to go to the firebase.google.com and create a
+brand new project or use existing if you prefer. Once we are at the console we can register our application.
+Once registered we can go to the project settings and we can see the option to get the configuration properties for this project.
+
+Like the following:
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
