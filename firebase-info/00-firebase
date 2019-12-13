@@ -1,0 +1,71 @@
+Angular works well with Firebase because of the AngularFire library. FireStore and the real time database both provide
+real time data feeds which are the perfect use case for observables and RXJS. And as you might imagine the angularfire library has
+a schematic @angular/fire so we can easily add it to our application by running "ng add @angular/fire", that's going to install
+the dependencies and make few other minor updates but at this point we don't even have a firebase project.
+
+The next step is to go to the firebase.google.com and create a brand new project or use existing if you prefer. Once we are
+at the console we can register our application. Once registered we can go to the project settings and we can see the option
+to get the configuration properties for this project. Like the following:
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD2gHuNfXYF_3ABWCsrKBoXeToCPimtCNo",
+    authDomain: "kanban-web-2db48.firebaseapp.com",
+    databaseURL: "https://kanban-web-2db48.firebaseio.com",
+    projectId: "kanban-web-2db48",
+    storageBucket: "kanban-web-2db48.appspot.com",
+    messagingSenderId: "114232444980",
+    appId: "1:114232444980:web:4277877052baa7ec9a6261",
+    measurementId: "G-1R16EJ2V14"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+One of the most common questions about the firebase config is whether or not is safe to add to a front-end application
+becacuse in many cases we don't want to add our API Key to a front-end code like in an Angular application.
+But when it comes to Firebase these credentials are perfectly fine and in fact they are required to be added to our
+front-end code. Because the way we secure Firebase App is by setting security rules in the back-end.
+
+We add the configuration to the environment.ts file:
+
+export const environment = {
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyD2gHuNfXYF_3ABWCsrKBoXeToCPimtCNo",
+    authDomain: "kanban-web-2db48.firebaseapp.com",
+    databaseURL: "https://kanban-web-2db48.firebaseio.com",
+    projectId: "kanban-web-2db48",
+    storageBucket: "kanban-web-2db48.appspot.com",
+    messagingSenderId: "114232444980",
+    appId: "1:114232444980:web:4277877052baa7ec9a6261",
+    measurementId: "G-1R16EJ2V14"
+  }
+};
+
+we add this to both files environment.ts and environment.prod.ts for development
+but in the real world is often a good practice to use a DIFFERENT PROJECT for development versus
+what we using in production. And that is because we can safetly modify and experiment with the database the
+authentication records without having to worry about affecting live customers data.
+
+We need to go to the app.module.ts and we import only the firebase services that we actually need and the environment variables
+we just setup.
+
+app.module.ts
+.............
+
+// Firebase imports, which is use to
+// initialize firebase itself.
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';

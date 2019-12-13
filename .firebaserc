@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kanban-web-2db48": {
+      "hosting": {
+        "kanban-demo": [
+          "kanban-web-2db48"
+        ]
+      }
+    }
+  }
+}

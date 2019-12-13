@@ -122,8 +122,13 @@
               "devServerTarget": "kanban-demo:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "kanban-demo"
 }

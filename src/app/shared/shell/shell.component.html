@@ -34,15 +34,18 @@
 
       <div *ngIf="!(isHandset$ | async)">
         <a mat-button routerLink="/kanban">🍱 Kanban Demo</a>
-        <a mat-button routerLink="/customers">⚡ SSR Demo</a>
+        <a mat-button routerLink="/customers">⚡ Customers</a>
 
         <a mat-button routerLink="/login">🔑 Login</a>
-
       </div>
 
-       <!-- DROPDOWN MENU -->
+      <!-- DROPDOWN MENU -->
 
-       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
         <mat-icon>more_vert</mat-icon>
       </button>
 
@@ -60,12 +63,14 @@
           <span>Full Course on www.oscarlagatta.com</span>
         </a>
 
-        <a mat-menu-item href="https://www.youtube.com/channel/UCwNGXv3J2ZYY-4GQbIGaKPw/featured">
+        <a
+          mat-menu-item
+          href="https://www.youtube.com/channel/UCwNGXv3J2ZYY-4GQbIGaKPw/featured"
+        >
           <i>📺</i>
           <span>Watch on the YouTube</span>
         </a>
       </mat-menu>
-
     </mat-toolbar>
     <!-- we need a way to pass our content into this component
     Because the navigation elements in the sidenav are relatively static,
