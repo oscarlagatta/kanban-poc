@@ -1,50 +1,51 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { RouterModule } from '@angular/router';
-
-// Angular Material
-import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule} from '@angular/material/icon';
-import { LayoutModule} from '@angular/cdk/layout';
+import { MatIconModule } from '@angular/material/icon';
+import { ShellComponent } from './shell/shell.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBarModule} from '@angular/material/snack-bar';
-import { ShellComponent } from './shell/shell.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material';
 const components = [
   ShellComponent
 ];
 
 const modules = [
   CommonModule,
-    RouterModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    LayoutModule,
-    MatSidenavModule,
-    MatListModule,
-    MatMenuModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSnackBarModule
+  RouterModule,
+  MatToolbarModule,
+  MatIconModule,
+  LayoutModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatListModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatDialogModule
 ];
 
 @NgModule({
-  declarations: [...components],
+  declarations: [
+    ...components
+  ],
   imports: [
-    ...modules
+    ...modules,
   ],
   exports: [
-    ...modules,
-    ...components
-  ]
+    ...components,
+    ...modules
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
